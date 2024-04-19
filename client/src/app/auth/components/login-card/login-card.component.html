@@ -3,11 +3,11 @@
     <img class="card-logo" src="./../../../../assets/logo.png" alt="logo" />
   </div>
 
-  <form (ngSubmit)="login()" class="card-content">
+  <form (ngSubmit)="login($event)" class="card-content" [formGroup]="loginForm">
     <label id="email-label" for="email">Username</label>
-    <input id="email-input" type="email" name="email" />
+    <input id="email-input" type="email" name="email" formControlName="email" />
     <label id="password-label" for="password">Password</label>
-    <input id="password-input" type="password" name="password" /> 
+    <input id="password-input" type="password" name="password" formControlName="password" /> 
     <button id="login-btn" type="submit">LOGIN</button>
   </form>
 </div>

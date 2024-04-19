@@ -1,0 +1,38 @@
+@import './../../mixins';
+@import './.././../variables';
+
+.navbar {
+    @include width-height(100%, 100%);
+    @include basic-flex(center, center);
+    flex-direction: row;
+    background-color: $navbar-background;
+    color: $secondary-color;
+    padding: 10px 20px;
+}
+
+.brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 10px;
+}
+
+.nav-links li:last-child {
+    margin-right: 0;
+}
+
+.nav-links a {
+    color: $secondary-color;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}

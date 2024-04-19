@@ -1,0 +1,62 @@
+@import './../../../mixins';
+@import './../../../icon.scss';
+@import './../../../variables';
+
+.profile-grid {
+    @include width-height(100%, 100%);
+    background-color: $white-background-s2;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+
+    grid-template-areas:
+        ". . . . . . . . . ."
+        ". . pr pr pr pr pr pr . ."
+        ". . pr pr pr pr pr pr . ."
+        ". . . bl bl ed ed . . ."
+        ". . . . . . . . . ."
+        ". . ls ls ls ls ls ls . ."
+        ". . ls ls ls ls ls ls . ."
+        ". . ls ls ls ls ls ls . ."
+        ". . ls ls ls ls ls ls . ."
+        ". . . . . . . . . ."
+    ;
+}
+
+.avatar {
+    grid-area: pr;
+}
+
+button {
+    background-color: $button-primary;
+    border-radius: 0.5em;
+    border: none;
+    font-weight: bold;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: $button-hover;
+    color: $white-background-s1;
+}
+
+#balance-btn, #edit-btn {
+    @include width-height(90%, 60%);
+    @include basic-flex(center, center);
+    @include center-grid-cell();
+}
+
+#balance-btn {
+    grid-area: bl;
+}
+
+#edit-btn {
+    grid-area: ed;
+}
+
+#details-list {
+    @include center-grid-cell();
+    @include width-height(100%, 100%);
+    grid-area: ls;
+    background-color: $primary-container;
+}

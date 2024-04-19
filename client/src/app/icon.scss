@@ -1,0 +1,42 @@
+@import './mixins';
+
+.avatar {  
+    @include basic-flex(center, center);
+    overflow: hidden;   
+}
+
+.user-icon {
+  font-size:1.5em;  /* change font size should change size of icon */
+}
+
+.user-icon {
+    @include width-height(6em, 6em);
+    border-radius: 4em; 
+    border: 1px solid skyblue;
+    background:rgb(195, 197, 197);
+    padding: 0.1em;  
+}
+
+.user-icon::before, .user-icon::after {
+    content:" ";
+    display: block;
+    background: rgb(246, 249, 249);
+    position: relative; 
+}
+
+.user-icon::before {
+    @include width-height(2em, 2em);
+    left: 2em;
+    top: 0.8em;
+    border-radius: 2em;
+}
+.user-icon::after {
+    @include width-height(4em, 2em);
+    left: 1em;
+    top: 1em;
+    border-radius: 2em 2em 1em 1em;
+}
+
+.font18 {
+    font-size: 18px
+}
