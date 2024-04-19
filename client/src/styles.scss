@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./app/mixins";
+
+html {
+  display: flex;
+  @include width-height(100vw, 100vh);
+}
+
+body, app-root, app-login-page, app-login-card {
+  @include width-height(inherit, inherit);
+  @include basic-flex(center, center);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+app-root {
+  app-login-page {
+    background-color: red;
+    background-color: rgb(250, 250, 250);
+    app-login-card {
+      // background-color: aliceblue;
+    }
+  }
+}
