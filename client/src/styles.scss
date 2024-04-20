@@ -35,8 +35,28 @@ app-root {
 
     app-navbar {
       @include width-height(100%, 100%);
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
       grid-area: nv;
-      background-color: rgb(188, 166, 166);
+      background-color: $navbar-background;
+      
+      mat-sidenav {
+        @include width-height(100%, 100%);
+        background-color: rgb(150, 164, 193);
+        border: none;
+      }
+      
+      mat-sidenav-content{
+        @include width-height(100%, 100%);
+      }
+      
+      mat-sidenav-container {
+        @include width-height(20%, 100vh);
+        background-color: none;
+      }
+
     }
 
     app-login-page, app-user-profile-page, app-login-card {
@@ -61,3 +81,5 @@ app-root {
     }
   }
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
