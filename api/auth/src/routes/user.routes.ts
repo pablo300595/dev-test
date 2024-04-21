@@ -1,16 +1,19 @@
-import {Router } from 'express';
+import { Router } from 'express';
 import { 
     getUser,
-    getUsers, 
+    getUsers,
+    getCurrentUser, 
     createUser, 
     updateUser 
 } from '../controller/user.controller';
+import { currentUser, requireAuth } from '@mirval/common';
 
 const router = Router();
 
-router.get('/api/user/:id', getUser);
+router.get('/api/user/:id', requireAuth, getUser);
 router.get('/api/users', getUsers);
+router.get('/api/current-user', currentUser, getCurrentUser);
 router.post('/api/user', createUser);
 router.put("/api/user/:id", updateUser);
 
-export { router as getAllRouter };
+export { router as userRouter };

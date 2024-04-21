@@ -1,4 +1,6 @@
 export enum Model {
+    id = 'id',
     users = 'users',
-    id = 'id'
+    email = 'email',
+    password = 'password'
 }

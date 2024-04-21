@@ -1,7 +1,9 @@
 import { app } from './app';
 import { createConnection } from "./db";
+import { setup } from './setup';
 
 createConnection();
+setup();
 
 const start = async(): Promise<void> => {
     app.listen(3000, () => {

@@ -1,16 +1,25 @@
 import express from 'express';
 import 'express-async-errors';
 import { json } from 'body-parser';
+import cookieSession from 'cookie-session';
 
-import { getAllRouter } from './routes/user.routes';
+import { userRouter } from './routes/user.routes';
+import { authRouter } from './routes/auth.routes';
 import { errorHandler, NotFoundError } from '@mirval/common';
 
 const app = express();
 
 app.set('trust proxy', true);
 app.use(json());
+app.use(
+    cookieSession({
+        signed: false,
+        secure: process.env['NODE_ENV'] !== 'test'
+    })
+);
 
-app.use(getAllRouter);
+app.use(userRouter);
+app.use(authRouter);
 
 app.all('*', async () => {
     throw new NotFoundError();

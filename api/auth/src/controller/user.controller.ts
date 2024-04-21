@@ -2,6 +2,10 @@ import { Handler, Response, Request } from "express";
 import { getConnection } from "../db";
 import { Model } from "../models/model.enum";
 
+export const getCurrentUser: Handler = (req: Request, res: Response) => {
+    console.log(req.session);
+    res.send({ currentUser: req.currentUser || null});
+};
 
 export const getUsers: Handler = (req: Request, res: Response) => {
     const data = getConnection().get(Model.users).value();
