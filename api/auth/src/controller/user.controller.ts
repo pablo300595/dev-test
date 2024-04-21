@@ -73,7 +73,7 @@ export const updateUser: Handler = (req: Request, res:Response) => {
 
         const updatedUser = getConnection()
             .get(Model.users)
-            .find({ _id: req.params['id'] })
+            .find({ _id: req.params[Model.id] })
             .assign(req.body)
             .write();
         
