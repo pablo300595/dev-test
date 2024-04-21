@@ -11,6 +11,6 @@ const router = Router();
 router.get('/api/user/:id', getUser);
 router.get('/api/users', getUsers);
 router.post('/api/user', createUser);
-router.put("/tasks/:id", updateUser);
+router.put("/api/user/:id", updateUser);
 
 export { router as getAllRouter };

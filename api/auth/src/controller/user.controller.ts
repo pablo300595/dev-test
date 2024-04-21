@@ -9,14 +9,14 @@ export const getUsers: Handler = (req: Request, res: Response) => {
 };
 
 export const getUser: Handler = (req: Request, res: Response) => {
-    const taskFound = getConnection()
+    const userFound = getConnection()
         .get(Model.users)
         .find({ _id: req.params[Model.id] })
         .value();
 
-    if (!taskFound) return res.status(404).json({ msg: "User not found" });
+    if (!userFound) return res.status(404).json({ msg: "User not found" });
 
-    return res.json(taskFound);
+    return res.json(userFound);
 };
 
 export const createUser: Handler = (req: Request, res: Response) => {
@@ -64,7 +64,7 @@ export const updateUser: Handler = (req: Request, res:Response) => {
     try {
         const userFound = getConnection()
             .get(Model.users)
-            .find({ _id: req.params[Model.id]})
+            .find({ _id: req.params[Model.id] })
             .value();
         
         if (!userFound) {
@@ -73,7 +73,7 @@ export const updateUser: Handler = (req: Request, res:Response) => {
 
         const updatedUser = getConnection()
             .get(Model.users)
-            .find({ _id: req.params[Model.id] })
+            .find({ _id: req.params['id'] })
             .assign(req.body)
             .write();
         
