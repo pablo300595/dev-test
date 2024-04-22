@@ -3,8 +3,8 @@ import { getConnection } from "../db";
 import { Model } from "../models/model.enum";
 
 export const getCurrentUser: Handler = (req: Request, res: Response) => {
-    console.log(req.session);
-    res.send({ currentUser: req.currentUser || null});
+    delete req.user.password;
+    res.send({ currentUser: req.user || null});
 };
 
 export const getUsers: Handler = (req: Request, res: Response) => {

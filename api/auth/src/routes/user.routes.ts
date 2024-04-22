@@ -6,14 +6,14 @@ import {
     createUser, 
     updateUser 
 } from '../controller/user.controller';
-import { currentUser, requireAuth } from '@mirval/common';
+import { authMiddleware } from '../middlewares/auth.middleware';
 
 const router = Router();
 
-router.get('/api/user/:id', requireAuth, getUser);
-router.get('/api/users', getUsers);
-router.get('/api/current-user', currentUser, getCurrentUser);
-router.post('/api/user', createUser);
-router.put("/api/user/:id", updateUser);
+router.get('/api/user/:id', authMiddleware, getUser);
+router.get('/api/users', authMiddleware, getUsers);
+router.get('/api/current-user', authMiddleware, getCurrentUser);
+router.post('/api/user', authMiddleware, createUser);
+router.put("/api/user/:id", authMiddleware, updateUser);
 
 export { router as userRouter };
