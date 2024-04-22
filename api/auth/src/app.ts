@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import 'express-async-errors';
 import { json } from 'body-parser';
 import CookieSession = require("cookie-session");
@@ -10,6 +11,7 @@ import { errorHandler, NotFoundError } from '@mirval/common';
 const app = express();
 
 app.set('trust proxy', true);
+app.use(cors());
 app.use(json());
 app.use(
     CookieSession({
