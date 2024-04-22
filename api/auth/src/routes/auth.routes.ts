@@ -13,7 +13,7 @@ router.post('/api/login', [
         .trim()
         .notEmpty()
         .withMessage('You must supply a password'),
-    validateRequest
+    // validateRequest
 ], signIn);
 
 export { router as authRouter };

@@ -9,6 +9,15 @@
     <button id="edit-btn">EDIT</button>
 
     <div id="details-list">
+        <ul>
+            <li>balance: {{((user$ | async)?.balance)}}</li>
+            <li>age: {{(user$ | async)?.age}}</li>
+            <li>eyeColor: {{(user$ | async)?.eyeColor}}</li>
+            <li>company: {{(user$ | async)?.company}}</li>
+            <li>email: {{(user$ | async)?.email}}</li>
+            <li>phone: {{(user$ | async)?.phone}}</li>
+            <li>address: {{(user$ | async)?.address}}</li>
+        </ul>
     </div>
 </div>
   
