@@ -21,7 +21,6 @@ export const authMiddleware = (req: Request, res: Response, next: NextFunction) 
     if (token) {
       const user = JwtService.verifyToken(token);
       if (user) {
-        console.log('user:::', user)
         req.user = user;
         next();
       } else {
