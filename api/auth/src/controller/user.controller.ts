@@ -1,6 +1,7 @@
 import { Handler, Response, Request } from "express";
 import { getConnection } from "../db";
 import { Model } from "../models/model.enum";
+import * as jwt from 'jsonwebtoken';
 
 export const getCurrentUser: Handler = (req: Request, res: Response) => {
     delete req.user.password;
@@ -24,6 +25,7 @@ export const getUser: Handler = (req: Request, res: Response) => {
 };
 
 export const createUser: Handler = (req: Request, res: Response) => {
+    console.log('testAA')
     const {
         _id,
         guid,
@@ -58,9 +60,25 @@ export const createUser: Handler = (req: Request, res: Response) => {
 
     try {
         getConnection().get(Model.users).push(newUser).write();
-        res.json(newUser);
+        console.log('delta')
+        const userJwt = jwt.sign({
+            _id: newUser._id,
+            email: newUser.email
+        }, process.env['JWT_KEY']);
+
+        const session = {
+            jwt: userJwt
+        };
+    
+        req.session = session;
+
+        return res.json({
+            jwt: userJwt,
+            newUser
+        });
+
     } catch (error) {
-        res.status(500).send(error);
+        return res.status(500).send(error);
     }
 };
 

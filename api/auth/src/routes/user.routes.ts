@@ -13,7 +13,7 @@ const router = Router();
 router.get('/api/user/:id', authMiddleware, getUser);
 router.get('/api/users', authMiddleware, getUsers);
 router.get('/api/current-user', authMiddleware, getCurrentUser);
-router.post('/api/user', authMiddleware, createUser);
+router.post('/api/user', createUser);
 router.put("/api/user/:id", authMiddleware, updateUser);
 
 export { router as userRouter };

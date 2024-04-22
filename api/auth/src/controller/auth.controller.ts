@@ -41,8 +41,6 @@ export const signIn: Handler = async(req: Request, res: Response) => {
 
     req.session = session;
 
-    console.log(req.session);
-
     delete existingUser.password;
 
     return res.status(200).send({
