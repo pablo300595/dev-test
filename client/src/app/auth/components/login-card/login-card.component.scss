@@ -98,3 +98,9 @@ button:hover {
 #login-btn {
     grid-area: lgnbtn;
 }
+
+#login-btn:disabled {
+    background-color: transparent;
+    color: $button-primary; /* Optionally, change text color when button is disabled */
+    /* Add any other styles you want to apply when the button is disabled */
+}

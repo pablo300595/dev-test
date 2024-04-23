@@ -8,6 +8,6 @@
     <input id="email-input" type="email" name="email" formControlName="email" />
     <label id="password-label" for="password">Password</label>
     <input id="password-input" type="password" name="password" formControlName="password" /> 
-    <button id="login-btn" type="submit">LOGIN</button>
+    <button id="login-btn" type="submit" [disabled]="loginForm.invalid">LOGIN</button>
   </form>
 </div>

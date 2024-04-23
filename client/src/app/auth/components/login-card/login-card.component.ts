@@ -65,13 +65,14 @@ export class LoginCardComponent {
           localStorage.setItem('jwt', response.session['jwt'])
           localStorage.setItem('user', JSON.stringify(response.existingUser));
         }
+        this.router.navigate(['/profile']);
 
       },
       error: (error) => {
         console.log(error)
+        this.openSnackBar('Error', error.error.errors[0].message);
       },
       complete: () => {
-        this.router.navigate(['/profile']);
       },
     })
 

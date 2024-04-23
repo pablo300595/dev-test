@@ -1,0 +1,6 @@
+@import './../../../mixins';
+@import './../../../variables';
+
+.card-content {
+    @include basic-flex(center, center);
+}

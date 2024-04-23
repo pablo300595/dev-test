@@ -44,3 +44,23 @@
     left: auto;
     right: 0;
 }
+
+p {
+    @include basic-flex(center, flex-start);
+    @include width-height(100%, 100%);
+
+    .burger-menu {
+        @include width-height(100%, 100%);
+        background-color: $navbar-background;
+    }
+
+    .burger-close {
+        @include width-height(100%, 10%);
+        @include basic-flex(center, flex-start);
+    }
+}
+
+.title {
+    @include basic-flex(center, center);
+    @include width-height(100%, 100%);
+}

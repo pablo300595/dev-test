@@ -16,9 +16,11 @@ export const signIn: Handler = async(req: Request, res: Response) => {
             password
         })
         .value();
+    
+    console.log(existingUser)
 
     if (!existingUser) {
-        throw new BadRequestError('Invalid credentials');
+        throw new BadRequestError('User not found');
     }
 
     const passwordMatch = await Password.compareNonCrypt(
@@ -40,8 +42,6 @@ export const signIn: Handler = async(req: Request, res: Response) => {
     };
 
     req.session = session;
-
-    delete existingUser.password;
 
     return res.status(200).send({
         session,

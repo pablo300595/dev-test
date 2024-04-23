@@ -1,11 +1,11 @@
-<p>{{(user$ | async)?.name?.first}} {{(user$ | async)?.name?.last}}</p>
+<p class="title">{{(user$ | async)?.name?.first}} {{(user$ | async)?.name?.last}}</p>
 <mat-sidenav-container class="example-container" [hasBackdrop]="true">
     <mat-sidenav #sidenav [mode]="'side'" [position]="'end'">
-        <p><button mat-button (click)="sidenav.toggle()">Collapse</button></p>
+        <p><button class="burger-close" mat-button (click)="sidenav.toggle()">Collapse</button></p>
     </mat-sidenav>
     
     <mat-sidenav-content>
-        <p><button mat-button (click)="sidenav.toggle()">=</button></p>
+        <p><button class="burger-menu" mat-button (click)="sidenav.toggle()">=</button></p>
     </mat-sidenav-content>
 
 </mat-sidenav-container>

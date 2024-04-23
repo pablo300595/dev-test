@@ -1,5 +1,6 @@
 @import './app/mixins';
 @import './app/variables';
+@import "./../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 html {
   @include basic-flex(center, center);
@@ -48,8 +49,9 @@ app-root {
         border: none;
       }
       
-      mat-sidenav-content{
-        @include width-height(100%, 100%);
+      mat-sidenav-content {
+        @include width-height(100%, 10%);
+        background-color: $navbar-background;
       }
       
       mat-sidenav-container {

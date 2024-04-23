@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>Edit Profile</h2>
+
+<mat-dialog-content class="mat-typography">
+    <!-- <pre>{{(session | async) | json}}</pre> -->
+
+    <form (ngSubmit)="update($event)" class="card-content" [formGroup]="editForm" #form>
+        <label for="balance">balance</label>
+        <input type="text" name="balance" formControlName="balance" />
+        <br>
+    
+        <label for="age">age</label>
+        <input type="number" name="age" formControlName="age" />
+        <br>
+    
+        <label for="eyeColor">eyeColor</label>
+        <input type="text" name="eyeColor" formControlName="eyeColor" />
+        <br>
+
+        <label for="company">company</label>
+        <input type="text" name="company" formControlName="company" />
+        <br>
+        
+        <label for="email">email</label>
+        <input type="email" name="email" formControlName="email" />
+        <br>
+    
+        <label for="phone">phone</label>
+        <input type="text" name="phone" formControlName="phone" />
+        <br>
+    
+        <label for="address">address</label>
+        <input type="text" name="address" formControlName="address" />
+        
+        <br>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-raised-button (click)="update($event)" [disabled]="editForm.invalid">Update</button>
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>
