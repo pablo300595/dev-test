@@ -60,8 +60,6 @@ export class EditProfileDialogComponent {
     let wholeUser;
      wholeUser = JSON.parse(localStorage.getItem('user')!)
 
-     console.log(wholeUser)
-     console.log(wholeUser._id)
     const changes: User = {
       balance: this.editForm.get('balance')?.value,
       age: this.editForm.get('age')?.value,

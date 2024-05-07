@@ -1,7 +1,10 @@
-<p class="title">{{(user$ | async)?.name?.first}} {{(user$ | async)?.name?.last}}</p>
+@if(currentUrl === '/profile') {
+    <p class="title">{{(user$ | async)?.name?.first || cachedUser?.name?.first}} {{(user$ | async)?.name?.last || cachedUser?.name?.last}}</p>
+}
 <mat-sidenav-container class="example-container" [hasBackdrop]="true">
     <mat-sidenav #sidenav [mode]="'side'" [position]="'end'">
         <p><button class="burger-close" mat-button (click)="sidenav.toggle()">Collapse</button></p>
+        <p><button mat-button (click)="logout(); sidenav.toggle()">Log Off</button></p>
     </mat-sidenav>
     
     <mat-sidenav-content>

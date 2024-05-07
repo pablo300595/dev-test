@@ -5,18 +5,18 @@
         </div>
     </div>
     
-    <button id="balance-btn">{{((user$ | async)?.balance)}}</button>
+    <button id="balance-btn">{{((user$ | async)?.balance) || cachedUser.balance}}</button>
     <button id="edit-btn" (click)="openDialog()">EDIT</button>
 
     <div id="details-list">
         <ul>
-            <li><b>balance:</b> {{((user$ | async)?.balance)}}</li>
-            <li><b>age:</b> {{(user$ | async)?.age}}</li>
-            <li><b>eyeColor:</b> {{(user$ | async)?.eyeColor}}</li>
-            <li><b>company:</b> {{(user$ | async)?.company}}</li>
-            <li><b>email:</b> {{(user$ | async)?.email}}</li>
-            <li><b>phone:</b> {{(user$ | async)?.phone}}</li>
-            <li><b>address:</b> {{(user$ | async)?.address}}</li>
+            <li><b>balance:</b> {{((user$ | async)?.balance) || cachedUser.balance}}</li>
+            <li><b>age:</b> {{(user$ | async)?.age || cachedUser.age}}</li>
+            <li><b>eyeColor:</b> {{(user$ | async)?.eyeColor || cachedUser.eyeColor}}</li>
+            <li><b>company:</b> {{(user$ | async)?.company || cachedUser.company}}</li>
+            <li><b>email:</b> {{(user$ | async)?.email || cachedUser.email}}</li>
+            <li><b>phone:</b> {{(user$ | async)?.phone || cachedUser.phone}}</li>
+            <li><b>address:</b> {{(user$ | async)?.address || cachedUser.address}}</li>
         </ul>
     </div>
 </div>

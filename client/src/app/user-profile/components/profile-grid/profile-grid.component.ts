@@ -21,6 +21,7 @@ import { EditProfileDialogComponent } from '../edit-profile-dialog/edit-profile-
 export class ProfileGridComponent {
   user$: Observable<User> = this.sessionService.currentUser$;
   user: any = toSignal(this.user$);
+  cachedUser: User = {};
 
 
   constructor(
@@ -28,6 +29,11 @@ export class ProfileGridComponent {
     public dialog: MatDialog
   ) {
 
+  }
+
+  ngOnInit(): void {
+    const user = JSON.parse(localStorage.getItem('user') || '');
+    this.cachedUser = {...user};
   }
 
   openDialog() {
